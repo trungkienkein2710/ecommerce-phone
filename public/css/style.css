@@ -1,0 +1,119 @@
+/* ===== GLOBAL ===== */
+body {
+    background: linear-gradient(to right, #eef2f3, #dfe9f3);
+    font-family: 'Segoe UI', sans-serif;
+}
+
+/* ===== CARD PRODUCT ===== */
+.product-card {
+    border-radius: 15px;
+    transition: all 0.3s ease;
+    border: none;
+    overflow: hidden;
+}
+
+.product-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+}
+
+/* ===== IMAGE ===== */
+.product-img {
+    border-radius: 10px;
+    height: 220px;
+    object-fit: cover;
+}
+
+/* ===== PRICE ===== */
+.price {
+    color: #e74c3c;
+    font-weight: bold;
+    font-size: 18px;
+}
+
+/* ===== BUTTON ===== */
+.btn-success {
+    background: linear-gradient(45deg, #00b09b, #96c93d);
+    border: none;
+    transition: 0.3s;
+}
+
+.btn-success:hover {
+    opacity: 0.9;
+    transform: scale(1.02);
+}
+
+/* ===== CART ===== */
+.cart-item {
+    background: white;
+    padding: 15px;
+    margin-bottom: 15px;
+    border-radius: 12px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+}
+
+/* ===== FORM CONTAINER ===== */
+.form-container {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start; /* 🔥 FIX lỗi bị cắt */
+    padding: 60px 0;
+}
+
+/* ===== FORM CARD ===== */
+.form-card {
+    width: 500px;
+    border-radius: 15px;
+    background: white;
+    padding: 25px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+
+    max-height: 90vh;        /* 🔥 FIX overflow */
+    overflow-y: auto;        /* 🔥 scroll khi dài */
+}
+
+/* ===== LABEL ===== */
+.form-card label {
+    font-weight: 600;
+    margin-bottom: 5px;
+    display: block;
+}
+
+/* ===== INPUT ===== */
+.form-card input,
+.form-card textarea,
+.form-card select {
+    border-radius: 8px;
+    padding: 10px;
+}
+
+/* ===== SCROLLBAR đẹp hơn ===== */
+.form-card::-webkit-scrollbar {
+    width: 6px;
+}
+
+.form-card::-webkit-scrollbar-thumb {
+    background: #ccc;
+    border-radius: 10px;
+}
+
+/* ===== TABLE (MANAGER) ===== */
+.table {
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.table thead {
+    background: #343a40;
+    color: white;
+}
+
+/* ===== NAVBAR ===== */
+.navbar {
+    box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+}
+
+/* ===== TITLE ===== */
+h2, h3 {
+    font-weight: 700;
+}
