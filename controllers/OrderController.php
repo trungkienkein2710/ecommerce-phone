@@ -115,7 +115,7 @@ class OrderController {
 
     try {
 
-        // 🔥 LẤY ITEMS
+        // Get ITEMS
         $items = $conn->query("
             SELECT product_id, quantity 
             FROM order_details
@@ -126,7 +126,7 @@ class OrderController {
             throw new Exception("Fetch items failed: " . $conn->error);
         }
 
-        // ❗ DEBUG (nếu cần)
+        // ❗ DEBUG 
         // echo $items->num_rows;
 
         // 🔄 RESTORE STOCK

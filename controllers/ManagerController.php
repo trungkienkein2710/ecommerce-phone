@@ -6,7 +6,7 @@ class ManagerController {
     private function checkManager() {
         if (!isset($_SESSION['user']) || 
            !in_array($_SESSION['user']['role'], ['manager','admin'])) {
-            die("❌ Không có quyền truy cập");
+            die("No Access");
         }
     }
 
