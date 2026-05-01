@@ -56,7 +56,7 @@ body {
 .form-container {
     display: flex;
     justify-content: center;
-    align-items: flex-start; /* 🔥 FIX lỗi bị cắt */
+    align-items: flex-start; 
     padding: 60px 0;
 }
 
@@ -68,8 +68,8 @@ body {
     padding: 25px;
     box-shadow: 0 10px 25px rgba(0,0,0,0.1);
 
-    max-height: 90vh;        /* 🔥 FIX overflow */
-    overflow-y: auto;        /* 🔥 scroll khi dài */
+    max-height: 90vh;        
+    overflow-y: auto;       
 }
 
 /* ===== LABEL ===== */
@@ -87,7 +87,7 @@ body {
     padding: 10px;
 }
 
-/* ===== SCROLLBAR đẹp hơn ===== */
+/* ===== SCROLLBAR ===== */
 .form-card::-webkit-scrollbar {
     width: 6px;
 }

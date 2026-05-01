@@ -107,13 +107,13 @@ switch ($action) {
         (new ManagerController())->updateOrderStatus();
         break;
 
-    // ===== CHECKOUT (🔥 UPDATED) =====
+    // ===== CHECKOUT  =====
     case 'checkout':
-        (new CartController())->checkoutForm(); // 👉 form
+        (new CartController())->checkoutForm(); 
         break;
 
     case 'place_order':
-        (new CartController())->placeOrder(); // 👉 submit
+        (new CartController())->placeOrder(); 
         break;
 
     case 'my_orders':

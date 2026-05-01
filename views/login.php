@@ -39,7 +39,7 @@
     <?php if(isset($_SESSION['errors'])): ?>
         <div class="alert alert-danger">
             <?php foreach($_SESSION['errors'] as $e): ?>
-                <div><?= $e ?></div>
+                <div>⚠ <?= $e ?></div>
             <?php endforeach; unset($_SESSION['errors']); ?>
         </div>
     <?php endif; ?>

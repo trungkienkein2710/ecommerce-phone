@@ -63,46 +63,57 @@ public function register() {
 }
 
 public function login() {
-
     global $conn;
-
-    $errors = [];
 
     if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
-        $email = trim($_POST['email']);
-        $password = $_POST['password'];
+        $errors = [];
 
-        if (empty($email)) {
+        $email = trim($_POST['email'] ?? '');
+        $password = trim($_POST['password'] ?? '');
+
+        // ===== VALIDATE =====
+        if ($email == '') {
             $errors[] = "Email is required";
         }
 
-        if (empty($password)) {
+        if ($password == '') {
             $errors[] = "Password is required";
         }
 
-        if (empty($errors)) {
+        if (!empty($errors)) {
+            $_SESSION['errors'] = $errors;
+            $_SESSION['old'] = $_POST;
+            header("Location: index.php?action=login");
+            exit();
+        }
 
-            $result = $conn->query("SELECT * FROM users WHERE email='$email'");
+        // ===== CHECK USER =====
+        $result = $conn->query("SELECT * FROM users WHERE email = '$email'");
 
-            if ($result && $result->num_rows == 1) {
+        if ($result->num_rows == 0) {
+            $errors[] = "Email not found";
+        } else {
+            $user = $result->fetch_assoc();
 
-                $user = $result->fetch_assoc();
-
-                if (password_verify($password, $user['password'])) {
-
-                    $_SESSION['user'] = $user;
-                    header("Location: index.php");
-                    exit();
-
-                } else {
-                    $errors[] = "Wrong password";
-                }
-
-            } else {
-                $errors[] = "Email not found";
+            if (!password_verify($password, $user['password'])) {
+                $errors[] = "Wrong password";
             }
         }
+
+        // ===== IF ERROR =====
+        if (!empty($errors)) {
+            $_SESSION['errors'] = $errors;
+            $_SESSION['old'] = $_POST;
+            header("Location: index.php?action=login");
+            exit();
+        }
+
+        // ===== SUCCESS =====
+        $_SESSION['user'] = $user;
+
+        header("Location: index.php");
+        exit();
     }
 
     include __DIR__ . '/../views/login.php';
